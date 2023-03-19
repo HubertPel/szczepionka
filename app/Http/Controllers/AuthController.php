@@ -23,8 +23,8 @@ class AuthController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'pesel' => 'required',
-            'email' => 'required',
+            'pesel' => ['required', 'unique:users,pesel'],
+            'email' => ['required', 'unique:users,email'],
             'birthdate' => 'required',
             'password' => 'required',
         ]);
