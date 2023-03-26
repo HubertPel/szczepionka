@@ -74,6 +74,17 @@ class StartProjectCommand extends Command
         }
         $this->newLine(2);
 
+        //Sprawdzenie czy istnieje klucz aplikacji
+        $this->info('Sprawdzenie czy istnieje klucz aplikacji');
+        if (env('APP_KEY')) {
+            $this->info('Istnieje');
+        } else {
+            $this->line('<fg=yellow>Brak, tworzenie nowego klucza</>');
+            Artisan::call('key:generate');
+            $this->info('Poprawnie dodano klucz');
+        }
+        $this->newLine();
+
         // sprawdzanie połaczenia z baza
         $this->line('<fg=yellow>Sprawdzanie połączenia z bazą danych</>');
         $connectionExist = false;
