@@ -14,9 +14,9 @@
     Pesel
     <input type="text" name="pesel"><br><br>
     Hasło
-    <input type="passoword" name="password"><br><br>
+    <input type="password" name="password"><br><br>
     Powtórz hasło
-    <input type="passoword" name="repeat_password"><br><br>
+    <input type="password" name="repeat_password"><br><br>
     <button type="submit">Zarejestruj się</button>
 </form>
 

@@ -1,0 +1,8 @@
+.test-style {
+    color: red;
+    background-color: green;
+    display: flex;
+    flex: content;
+    flex-direction: row;
+    justify-content: center;
+}
