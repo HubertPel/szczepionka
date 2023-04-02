@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/logowanie', [AuthController::class, 'index']);
 Route::get('/rejestracja', [AuthController::class, 'register']);
 Route::post('/rejestracja', [AuthController::class, 'saveUser']);
+Route::get('/faq', [FaqController::class, 'index']);

@@ -10,4 +10,4 @@
 
 
 </head>
-<body class="antialiased">
+<body style="margin: 0; paddin: 0;" class="body">
