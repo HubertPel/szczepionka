@@ -1,5 +1,5 @@
 .body {
-    background-color: #cdc6c6;
+    /* background-color: #cdc6c6; */
 }
 
 .test-style {
@@ -51,7 +51,7 @@
 .main-container {
     display: flex;
     width: 100%;
-    background-color: #cdc6c6;
+    /* background-color: #cdc6c6; */
     margin: 0;
     align-items: center;
     justify-content: center;
@@ -63,6 +63,7 @@
     width: 80%;
     padding: 10px;
     border-radius: 10px;
+    box-shadow: 0 0 8px 0px black;
 }
 
 .content p {
@@ -83,6 +84,36 @@
     align-items: flex-start;
     width: 80%;
     justify-content: space-between;
+}
+
+.background-darker {
+    background-color: #cdc6c6;
+    margin-top: 100px;
+}
+
+.content-without-shadow {
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ciclable-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 0 0 8px 0px black;
+    padding: 50px;
+    border-radius: 20px;
+    transition: 0.5s;
+    text-decoration: none;
+    color: black;
+}
+
+.ciclable-box:hover {
+    background-color:  rgba(255, 0, 0, 0.4);
 }
 
 @media (max-width: 1024px) {

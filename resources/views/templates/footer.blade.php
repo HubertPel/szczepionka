@@ -1,4 +1,4 @@
-<div class="main-container">
+<div class="main-container background-darker" >
     <div class="footer">
         <div>
             <p>

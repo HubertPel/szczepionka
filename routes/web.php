@@ -21,3 +21,5 @@ Route::get('/logowanie', [AuthController::class, 'index']);
 Route::get('/rejestracja', [AuthController::class, 'register']);
 Route::post('/rejestracja', [AuthController::class, 'saveUser']);
 Route::get('/faq', [FaqController::class, 'index']);
+Route::get('/o-nas', [HomeController::class, 'about']);
+Route::get('/o-wirusie', [HomeController::class, 'aboutVirus']);
