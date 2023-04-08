@@ -23,7 +23,15 @@
     <div class="medium-box" style="width: 60%">
         <table class="register-table">
             <tr>
-                <td>Dostępne terminy pojawią się po wybraniu placówki</td>
+                <td>
+                    @php
+                        if (session('message')) { 
+                            echo '<span style="color:' . (session('error') == '1' ? 'red' : 'green') . ';">' . session('message') . '</span>';
+                        }  else {
+                           echo 'Dostępne terminy pojawią się po wybraniu placówki';
+                        } 
+                    @endphp
+                </td>
             </tr>
         </table>
     </div>

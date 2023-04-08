@@ -31,8 +31,8 @@ $('#vaccine-hospital').change(function () {
 
 });
 
-function registerUser(hour) {
-    let url = "/zapisy/zapisz/" + hospital + '?hour=' + hour;
+function registerUser(hour, date) {
+    let url = "/zapisy/zapisz/" + hospital + '?hour=' + hour + '&date=' + date;
 
     window.location = url;
 }

@@ -29,14 +29,21 @@
     @for ($i = 0; $i < 60; $i += 10)
         <tr>
             <td></td>
+            @php $weekDay = 0;  @endphp
             @foreach ($openDate as $item)
-                @if ($hour >= $item->start && $hour <= $item->end)
-                    <td class="with-data" onClick="registerUser('{{$hour . ':' . ($i == 0 ? '00' : $i)}}'   )">
+                @if (
+                    $hour >= $item->start &&
+                    $hour <= $item->end &&
+                    date('Y-m-d H:i:s') < date('Y-m-d H:i:s', strtotime($week['start'] . ' ' . $hour . ':' . ($i == 0 ? '00' : $i)  . ' +' . $weekDay . ' days' )) &&
+                    !in_array(date('Y-m-d H:i:s', strtotime($week['start'] . ' ' . $hour . ':' . ($i == 0 ? '00' : $i)  . ' +' . $weekDay . ' days' )), $existedDates)
+                )
+                    <td class="with-data" onClick="registerUser('{{$hour . ':' . ($i == 0 ? '00' : $i)}}', '{{date('Y-m-d', strtotime($week['start'] . ' +' . $weekDay . ' days' ))}}')">
                         {{$hour . ':' . ($i == 0 ? '00' : $i)}} Zapisz się
                     </td>
                 @else    
                     <td></td>
                 @endif
+                @php $weekDay++; @endphp
             @endforeach
         </tr>
     @endfor
