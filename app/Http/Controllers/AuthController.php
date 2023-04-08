@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use App\Rules\Pesel;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
 {
@@ -23,7 +25,7 @@ class AuthController extends Controller
         $validated = $request->validate([
             'name' => 'required',
             'surname' => 'required',
-            'pesel' => ['required', 'unique:users,pesel'],
+            'pesel' => ['required', 'unique:users,pesel', new Pesel],
             'email' => ['required', 'unique:users,email'],
             'birthdate' => 'required',
             'password' => 'required',
@@ -42,5 +44,28 @@ class AuthController extends Controller
             'error' => 0,
             'message' => 'Poprawnie dodano konto',
         ]);
+    }
+
+    public function login(Request $request)
+    {
+        $user = User::where('email', $request->email)
+            ->where('password', $request->password)
+            ->first();    
+        
+        if (!$user) { 
+            return redirect('/logowanie')->with([
+                'error' => 1,
+                'message' => 'Podany użytkownik nie istnieje',
+            ]);
+        }
+
+        // $request->session()->put('user_id', $user->id);
+
+        session([
+            'user_id' => $user->id,
+            'user_name' => $user->name,
+            'user_surname' => $user->surname,
+        ]);
+        return redirect('/');
     }
 }

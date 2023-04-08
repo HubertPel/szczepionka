@@ -1,11 +1,5 @@
 @include('templates.header')
 
-<div class="header_main">
-    <div>testing</div>
-    <div>testing</div>
-    <div>testing</div>
-</div>
-
 <div class="main-container">
     <div class="content">
         <p class='title'>O nas</p>

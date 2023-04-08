@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\ServiceProvider;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,7 +15,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
     }
 
     /**

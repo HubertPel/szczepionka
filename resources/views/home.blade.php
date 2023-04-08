@@ -1,11 +1,5 @@
 @include('templates.header')
 
-<div class="header_main">
-    <div>testing</div>
-    <div>testing</div>
-    <div>testing</div>
-</div>
-
 <div class="main-image">
     <div class="main-image-text">
         Zapraszamy na szczepienia <br>dostępne w naszej ofercie.
