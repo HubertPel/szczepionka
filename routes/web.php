@@ -35,3 +35,6 @@ Route::get('/ajax/vaccine/city/{city}', [RegistersContoller::class, 'cityInfo'])
 Route::get('/zapisy/zapisz/{hospital}', [RegistersContoller::class, 'registerForVisit']);
 Route::get('/moje-konto', [UserController::class, 'myAccount']);
 Route::post('/moje-konto', [UserController::class, 'updateMyData']);
+Route::get('/moje-konto/wizyty', [UserController::class, 'myVisits']);
+Route::get('/moje-konto/wizyty/certfikat/{visit}', [UserController::class, 'certificate']);
+Route::get('/moje-konto/wizyty/anuluj/{visit}', [UserController::class, 'cancelVisit']);

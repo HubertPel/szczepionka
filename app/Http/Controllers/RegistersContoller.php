@@ -119,7 +119,8 @@ class RegistersContoller extends Controller
         Visit::insert([
             'user_id' => session('user_id'),
             'hospital_id' => $hospital,
-            'date' => $visitDate
+            'date' => $visitDate,
+            'status' => 'planned',
         ]);
 
         return redirect('/zapisy')->with(['error' => 0, 'message' => 'Poprawnie dodano wizytę']);

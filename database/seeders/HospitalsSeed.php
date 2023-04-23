@@ -23,35 +23,40 @@ class HospitalsSeed extends Seeder
                         'address' => 'ul. Pileckiego 122A, 02-781 Warszawa',
                         'phone' => '+48 22 279 77 77',
                         'email' => 'ursynow@szczepimysie.waw.pl',
-                        'hours' => 'Poniedziałek-piątek: 8:00-16:00, sobota: 9:00-13:00'
+                        'hours' => 'Poniedziałek-piątek: 8:00-16:00, sobota: 9:00-13:00',
+                        'hours_data' => json_encode([['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>9, 'end' => 13]])
                     ),
                     array(
                         'name' => 'Punkt Szczepień Mokotów',
                         'address' => 'ul. Racjonalizacji 8A, 02-673 Warszawa',
                         'phone' => '+48 22 827 77 77',
                         'email' => 'mokotow@szczepimysie.waw.pl',
-                        'hours' => 'Poniedziałek-piątek: 9:00-17:00, sobota: 10:00-14:00'
+                        'hours' => 'Poniedziałek-piątek: 9:00-17:00, sobota: 10:00-14:00',
+                        'hours_data' => json_encode([['start'=>9, 'end' => 17],['start'=>9, 'end' => 17],['start'=>9, 'end' => 17],['start'=>9, 'end' => 17],['start'=>9, 'end' => 17],['start'=>10, 'end' => 14]])
                     ),
                     array(
                         'name' => 'Punkt Szczepień Bielany',
                         'address' => 'ul. Władysława Broniewskiego 11, 01-901 Warszawa',
                         'phone' => '+48 22 867 77 77',
                         'email' => 'bielany@szczepimysie.waw.pl',
-                        'hours' => 'Poniedziałek-piątek: 10:00-18:00, sobota: 11:00-15:00'
+                        'hours' => 'Poniedziałek-piątek: 10:00-18:00, sobota: 11:00-15:00',
+                        'hours_data' => json_encode([['start'=>10, 'end' => 18],['start'=>10, 'end' => 18],['start'=>10, 'end' => 18],['start'=>10, 'end' => 18],['start'=>10, 'end' => 18],['start'=>11, 'end' => 15]])
                     ),
                     array(
                         'name' => 'Punkt Szczepień Wola',
                         'address' => 'ul. Sowińskiego 5A, 01-496 Warszawa',
                         'phone' => '+48 22 835 77 77',
                         'email' => 'wola@szczepimysie.waw.pl',
-                        'hours' => 'Poniedziałek-piątek: 8:00-16:00, sobota: 9:00-13:00'
+                        'hours' => 'Poniedziałek-piątek: 8:00-16:00, sobota: 9:00-13:00',
+                        'hours_data' => json_encode([['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>8, 'end' => 16],['start'=>9, 'end' => 13]])
                     ),
                     array(
                         'name' => 'Punkt Szczepień Śródmieście',
                         'address' => 'ul. Nowogrodzka 76, 02-018 Warszawa',
                         'phone' => '+48 22 505 22 33',
                         'email' => 'srodmiescie.szczepienia@wp.pl',
-                        'hours' => 'Poniedziałek-piątek: 8:00-20:00, sobota: 9:00-16:00'
+                        'hours' => 'Poniedziałek-piątek: 8:00-20:00, sobota: 9:00-16:00',
+                        'hours_data' => json_encode([['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>9, 'end' => 16]])
                     ),
                 ]
             ],
@@ -63,35 +68,40 @@ class HospitalsSeed extends Seeder
                         'address' => 'ul. Prądnicka 80, 31-202 Kraków',
                         'phone' => '+48 12 614 20 00',
                         'email' => 'szpital@kss.krakow.pl',
-                        'hours' => 'Poniedziałek-piątek: 8:00-20:00, sobota-niedziela: 9:00-16:00'
+                        'hours' => 'Poniedziałek-piątek: 8:00-20:00, sobota-niedziela: 9:00-16:00',
+                        'hours_data' => json_encode([['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>8, 'end' => 20],['start'=>9, 'end' => 16]])
                     ),
                     array(
                         'name' => 'Centrum Medyczne Damiana',
                         'address' => 'ul. Sarego 12, 31-047 Kraków',
                         'phone' => '+48 12 429 22 00',
                         'email' => 'szczepienia@damian.pl',
-                        'hours' => 'Poniedziałek-piątek: 8:00-18:00, sobota: 9:00-15:00'
+                        'hours' => 'Poniedziałek-piątek: 8:00-18:00, sobota: 9:00-15:00',
+                        'hours_data' => json_encode([['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>9, 'end' => 15]])
                     ),
                     array(
                         'name' => 'Medicover Kraków',
                         'address' => 'ul. Długa 72, 31-146 Kraków',
                         'phone' => '+48 22 33 77 500',
                         'email' => 'szczepienia@medicover.pl',
-                        'hours' => 'Poniedziałek-piątek: 8:00-18:00, sobota: 9:00-15:00'
+                        'hours' => 'Poniedziałek-piątek: 8:00-18:00, sobota: 9:00-15:00',
+                        'hours_data' => json_encode([['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>9, 'end' => 15]])
                     ),
                     array(
                         'name' => 'Centrum Medyczne NZOZ Zdrowie',
                         'address' => 'ul. Królewska 65, 30-081 Kraków',
                         'phone' => '+48 12 422 11 11',
                         'email' => 'rejestracja@zdrowie-krakow.pl',
-                        'hours' => 'Poniedziałek-piątek: 7:30-19:00, sobota: 8:00-14:00'
+                        'hours' => 'Poniedziałek-piątek: 7:00-19:00, sobota: 8:00-14:00',
+                        'hours_data' => json_encode([['start'=>7, 'end' => 19],['start'=>7, 'end' => 19],['start'=>7, 'end' => 19],['start'=>7, 'end' => 19],['start'=>7, 'end' => 19],['start'=>8, 'end' => 14]])
                     ),
                     array(
                         'name' => 'Medicover Kraków - Centrum Medyczne',
                         'address' => 'ul. Rzemieślnicza 35, 30-403 Kraków',
                         'phone' => '+48 22 33 77 500',
                         'email' => 'szczepienia@medicover.pl',
-                        'hours' => 'Poniedziałek-piątek: 8:00-18:00, sobota: 9:00-15:00'
+                        'hours' => 'Poniedziałek-piątek: 8:00-18:00, sobota: 9:00-15:00',
+                        'hours_data' => json_encode([['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>9, 'end' => 15]])
                     ),
                 ]
             ],

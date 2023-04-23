@@ -2,10 +2,16 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Hospitals;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Visit extends Model
 {
     use HasFactory;
+
+    public function hospital()
+    {
+        return $this->hasOne(Hospitals::class, 'id', 'hospital_id');
+    }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Rules\Pesel;
+use App\Models\Visit;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -47,4 +48,48 @@ class UserController extends Controller
             'message' => 'Poprawnie edytowano dane',
         ]);
     } 
+
+    public function myVisits()
+    {
+        if (!session('user_id')) {
+            return redirect('/logowanie');
+        }
+
+        $visits = Visit::where('user_id', session('user_id'))->orderBy('date', 'DESC')->get();
+
+        return view('my-vistis', ['visits' => $visits]);
+    }
+
+    public function certificate($visit)
+    {
+        if (!session('user_id')) {
+            return redirect('/logowanie');
+        }
+
+        $visitData = Visit::where('user_id', session('user_id'))->where('id', $visit);
+
+        if (!$visitData) {
+            return redirect('/moje-konto/wizyty');
+        }
+
+        $mpdf = new \Mpdf\Mpdf();
+        $mpdf->WriteHTML('<h1>Certfikat</h1>');
+        $mpdf->Output();
+    }
+
+    public function cancelVisit($visit)
+    {
+        if (!session('user_id')) {
+            return redirect('/logowanie');
+        }
+
+        $visitData = Visit::where('user_id', session('user_id'))->where('id', $visit);
+
+        if (!$visitData) {
+            return redirect('/moje-konto/wizyty');
+        }
+
+        Visit::where('id', $visit)->update(['status' => 'canceled']);
+        return redirect('/moje-konto/wizyty');
+    }
 }

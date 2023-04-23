@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVisitsTable extends Migration
+class AddStatusColumnToVisitsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateVisitsTable extends Migration
      */
     public function up()
     {
-        Schema::create('visits', function (Blueprint $table) {
-            $table->id();
-            $table->integer('hospital_id');
-            $table->integer('user_id');
-            $table->datetime('date');
-            $table->timestamps();
+        Schema::table('visits', function (Blueprint $table) {
+            $table->string('status', 64)->after('user_id');
         });
     }
 
@@ -29,6 +25,8 @@ class CreateVisitsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('visits');
+        Schema::table('visits', function (Blueprint $table) {
+            $table->dropColumn('status');
+        });
     }
 }
