@@ -191,6 +191,13 @@
     text-align: center;
 }
 
+.week-select {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 @media (max-width: 1024px) {
     .red-button {
         display: flex;

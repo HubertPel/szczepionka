@@ -40,8 +40,14 @@ class RegistersContoller extends Controller
             return redirect('/logowanie');
         }
 
+        if (!isset($_GET['week'])) {
+            $weekCount = 1;
+        } else {
+            $weekCount = $_GET['week'];
+        }
+   
         $hospital = Hospitals::where('id', $city)->first();
-        $week = $this->getWeek('+1 weeks');
+        $week = $this->getWeek('+' . $weekCount . ' weeks');
 
         $visits = Visit::where('date', '>=', $week['start'])
             ->where('date', '<=', $week['end'])
@@ -63,6 +69,9 @@ class RegistersContoller extends Controller
                     'existedDates' => $arrayOfDate,
                 ]
             )->render(),
+            'date_start' => date('d.m.Y' ,strtotime($week['start'])),
+            'date_end' => date('d.m.Y', strtotime($week['end'])),
+            'week' => $weekCount
         ]);
     }
 
@@ -77,8 +86,8 @@ class RegistersContoller extends Controller
         }
 
         //always next saturday
-        if(date('D')!='Sat') {
-            $staticfinish = date('Y-m-d',strtotime('next Saturday'));
+        if(date('D')!='Sun') {
+            $staticfinish = date('Y-m-d',strtotime('next Sunday'));
         } else {
             $staticfinish = date('Y-m-d');
         }
