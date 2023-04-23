@@ -25,6 +25,7 @@ Route::post('/rejestracja', [AuthController::class, 'saveUser']);
 Route::get('/faq', [FaqController::class, 'index']);
 Route::get('/o-nas', [HomeController::class, 'about']);
 Route::get('/o-wirusie', [HomeController::class, 'aboutVirus']);
+Route::get('/wyloguj', [AuthController::class, 'logout']);
 
 // tylko po zalogowaniu
 Route::get('/zapisy', [RegistersContoller::class, 'index']);
