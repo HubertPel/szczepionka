@@ -29,7 +29,8 @@ class AuthController extends Controller
             'email' => ['required', 'unique:users,email'],
             'birthdate' => 'required',
             'password' => 'required',
-        ]);
+            'repeat_password' => ['required', 'same:password'],
+        ]); 
         
         User::insert([
             'name' => $request->input('name'),
