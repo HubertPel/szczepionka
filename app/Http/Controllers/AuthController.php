@@ -60,8 +60,6 @@ class AuthController extends Controller
             ]);
         }
 
-        // $request->session()->put('user_id', $user->id);
-
         session([
             'user_id' => $user->id,
             'user_name' => $user->name,
