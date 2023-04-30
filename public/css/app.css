@@ -198,6 +198,10 @@
     justify-content: space-between;
 }
 
+.white-svg-filter {
+    filter: invert(99%) sepia(4%) saturate(1053%) hue-rotate(246deg) brightness(122%) contrast(100%);
+}
+
 @media (max-width: 1024px) {
     .red-button {
         display: flex;

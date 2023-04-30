@@ -17,7 +17,23 @@ class UserController extends Controller
         }
 
         $user = User::find(session('user_id'));
-        return view('my-account', ['user' => $user]);
+
+        $visits = Visit::where('user_id', $user->id)
+            ->where('status', 'planned')
+            ->count();
+
+        $visitDate = Visit::where('user_id', $user->id)
+            ->where('status', 'planned')
+            ->orderBy('date', 'ASC')
+            ->first();
+
+        return view('my-account',
+            [
+                'user' => $user,
+                'visits' => $visits,
+                'visitDate' => $visitDate
+            ]
+        );
     }
 
     function updateMyData(Request $request)
@@ -43,6 +59,13 @@ class UserController extends Controller
             'birthdate' => $request->input('birthdate'),
         ]);
 
+        $user = User::find(session('user_id'));
+        session([
+            'user_id' => $user->id,
+            'user_name' => $user->name,
+            'user_surname' => $user->surname,
+        ]);
+
         return redirect('/moje-konto')->with([
             'error' => 0,
             'message' => 'Poprawnie edytowano dane',
@@ -57,7 +80,23 @@ class UserController extends Controller
 
         $visits = Visit::where('user_id', session('user_id'))->orderBy('date', 'DESC')->get();
 
-        return view('my-vistis', ['visits' => $visits]);
+        $visitsCount = Visit::where('user_id', session('user_id'))
+            ->where('status', 'planned')
+            ->count();
+
+        $visitDate = Visit::where('user_id', session('user_id'))
+            ->where('status', 'planned')
+            ->orderBy('date', 'ASC')
+            ->first();
+
+
+        return view('my-vistis',
+            [
+                'visits' => $visits,
+                'visitsCount' => $visitsCount,
+                'visitDate' => $visitDate
+            ]
+        );
     }
 
     public function certificate($visit)

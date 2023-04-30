@@ -1,19 +1,31 @@
 @include('templates.header')
 
-<div class="main-container">
-    <p class="title">
-        Na tej podstronie znajdziesz najczęsciej zadawane pytanie i odpowiedzi na nie.
-    </p>
-</div>
-
-@foreach ($faq as $item)
-    <div class="main-container">
-        <div class="content">
-            <p class='sub-title'>{{$item->question}}</p>
-            <hr>
-            <p>{{$item->answer}}</p>
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-sm-10">
+                <h1>Najczęsciej zadawane pytania</h1>
+            </div>
         </div>
     </div>
-@endforeach
+</section>
+
+<div class="row justify-content-center">
+    <div class="col-10">
+    
+        @foreach ($faq as $item)
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">{{$item->question}}</h3>
+            </div>
+            <div class="card-body" style="display: block;">
+                {{$item->answer}}
+            </div>
+        </div>
+        @endforeach
+        
+    
+    </div>
+</div>
 
 @include('templates.footer')
