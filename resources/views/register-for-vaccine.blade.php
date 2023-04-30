@@ -123,15 +123,11 @@
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          headerToolbar: {
-    center: 'dayGridMonth,timeGridFourDay' // buttons for switching between views
-  },
-  views: {
-    timeGridFourDay: {
-      type: 'timeGrid',
-      duration: { days:7 },
-      buttonText: '4 day'
-    }
+            initialView: 'dayGridWeek',
+  headerToolbar: {
+    left: 'prev,next',
+    center: 'title',
+    right: 'dayGridWeek' // user can switch between the two
   }
         });
 
