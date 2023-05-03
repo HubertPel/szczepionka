@@ -2,15 +2,15 @@
     <div class="container">
 
         <div class="collapse navbar-collapse order-3" id="navbarCollapse" style="justify-content: space-between; margin-right: -100px;">
-        
+
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Home</a>
+                    <a href="/" class="nav-link">Strona główna</a>
                 </li>
                 <li class="nav-item">
                     <a href="/zapisy" class="nav-link">Zapisz się</a>
                 </li>
-            
+
             </ul>
             @if(!session('user_id'))
             <form class="form-inline ml-0 ml-md-5" style="gap: 10px" method="POST" action="/logowanie">
@@ -19,7 +19,7 @@
                 <input class="form-control form-control-navbar" placeholder="Hasło" type="password" name="password" aria-label="Search">
                 <button class="btn btn-success">Zaloguj się</button>
             </form>
-            @else   
+            @else
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Witaj, <strong>{{session('user_name')}}</strong></a>
@@ -28,7 +28,7 @@
                             <li><a href="/moje-konto/wizyty" class="dropdown-item">Moje wizyty</a></li>
                             <li class="dropdown-divider"></li>
                             <li><a href="/wyloguj" class="dropdown-item">Wyloguj</a></li>
-                
+
                         </ul>
                     </li>
                 </ul>
