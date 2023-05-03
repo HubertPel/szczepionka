@@ -5,7 +5,7 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a href="/" class="nav-link">Strona główna</a>
+                    <a href="/" class="nav-link">Strona główna </a>
                 </li>
                 <li class="nav-item">
                     <a href="/zapisy" class="nav-link">Zapisz się</a>
