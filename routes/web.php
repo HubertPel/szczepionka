@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TestsController;
 use App\Http\Controllers\RegistersContoller;
+use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,3 +47,8 @@ Route::get('/moje-konto/wizyty/anuluj/{visit}', [UserController::class, 'cancelV
 Route::get('/testy', [TestsController::class, 'index']);
 Route::get('/test/change-status/{visit}', [TestsController::class, 'changeStatus']);
 Route::get('/test/change-result/{visit}', [TestsController::class, 'changeResult']);
+
+// admin
+Route::prefix('admin')->group(function() {
+    Route::get('/login', [AdminAuthController::class, 'login']);
+});
