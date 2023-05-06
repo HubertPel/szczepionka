@@ -36,7 +36,7 @@
                         <svg style="height: 50px;" class="white-svg-filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 7l32 32 32 32c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15L417.9 128l55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-72-72L295 73c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l55 55L422.1 56 407 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0zM210.3 155.7l61.1-61.1c.3 .3 .6 .7 1 1l16 16 56 56 56 56 16 16c.3 .3 .6 .6 1 1l-191 191c-10.5 10.5-24.7 16.4-39.6 16.4H97.9L41 505c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l57-57V325.3c0-14.9 5.9-29.1 16.4-39.6l43.3-43.3 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57 41.4-41.4 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57z"/></svg>
                     </span>
                     <div class="info-box-content">
-                        <span class="info-box-text"  style="color: black;">Zaplanowane szczepienia</span>
+                        <span class="info-box-text"  style="color: black;">Zaplanowany test</span>
                         <span class="info-box-number"  style="color: black;">{{$visitsCount}}</span>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                     <span class="info-box-icon bg-success">
                         <svg style="height: 50px;" class="white-svg-filter" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M441 7l32 32 32 32c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-15-15L417.9 128l55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-72-72L295 73c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l55 55L422.1 56 407 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0zM210.3 155.7l61.1-61.1c.3 .3 .6 .7 1 1l16 16 56 56 56 56 16 16c.3 .3 .6 .6 1 1l-191 191c-10.5 10.5-24.7 16.4-39.6 16.4H97.9L41 505c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l57-57V325.3c0-14.9 5.9-29.1 16.4-39.6l43.3-43.3 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57 41.4-41.4 57 57c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6l-57-57z"/></svg>
                     </span>
-                    <div class="info-box-content" style="color: black;">Najbliższe szczepienie</span>
+                    <div class="info-box-content" style="color: black;">Najbliższy test</span>
                         <span class="info-box-number"  style="color: black;">@if(isset($visitDate)){{date('d.m.Y H:i', strtotime($visitDate->date))}}@else Brak @endif</span>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                         </span>
                         <div class="info-box-content">
                             <span class="info-box-text"  style="color: black;">Zapisz się</span>
-                            <span class="info-box-text"  style="color: black;"> na szczepienie</span>
+                            <span class="info-box-text"  style="color: black;"> na test</span>
                         </div>
                     </div>
                 </a>

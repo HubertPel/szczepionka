@@ -5,11 +5,12 @@
         <p class='title'>O nas</p>
         <hr>
         <p>
-            Rejestracja na szczepienia przeciw COVID-19 online to proces, który umożliwia osobom zarejestrowanie się na szczepienie poprzez platformę internetową. W wielu krajach rejestracja online stała się standardowym sposobem rezerwacji terminu na szczepienie, co umożliwia szybsze i bardziej wygodne zarządzanie procesem szczepień.
+            Jeśli potrzebujesz przebadać się na obecność koronawirusa, możesz zapisać się na test na COVID-19. Na naszej stronie znajdziesz informacje na temat zapisów na testy i procedur, które musisz wykonać, aby przetestować się na obecność wirusa.
         </p>
-        <p>Osoby zainteresowane szczepieniem mogą odwiedzić stronę internetową, na której są dostępne informacje na temat szczepionek przeciw COVID-19, procedury szczepień oraz lokalizacje, w których szczepienia są wykonywane. W większości przypadków wymagane jest podanie informacji osobistych, takich jak imię, nazwisko, numer telefonu i adres e-mail, aby zarejestrować się na szczepienie.</p>
-        <p>Po zarejestrowaniu, osoba może zazwyczaj wybrać dogodny dla siebie termin szczepienia i lokalizację, w której chce się zaszczepić. Po dokonaniu rezerwacji, użytkownik otrzymuje potwierdzenie e-mailem lub SMS-em, a niektóre platformy mogą również przypominać o terminie szczepienia w dniu jego wykonania.</p>
-        <p>Zapisy na szczepienia online umożliwiają łatwy i szybki dostęp do szczepień przeciw COVID-19, co przyczynia się do przyspieszenia procesu szczepień i zwiększenia liczby osób zaszczepionych. Platformy te mogą również zawierać informacje na temat bezpieczeństwa i skuteczności szczepionek, co może pomóc w zmniejszeniu obaw i wątpliwości związanych z procesem szczepień.</p>
+        <p>Zapisy na testy na COVID-19 są przeprowadzane w różnych miejscach w Polsce. Można je wykonać m.in. w punktach pobrań krwi, laboratoriach diagnostycznych oraz w wybranych placówkach medycznych. Aby umówić się na test, należy skontaktować się z wybranym miejscem i ustalić termin oraz godzinę wizyty.</p>
+        <p>Na naszej stronie znajdziesz wykaz punktów, w których można wykonać testy na COVID-19, wraz z informacjami kontaktowymi oraz godzinami pracy. Znajdziesz tam również informacje o rodzajach testów, które można wykonać oraz o tym, jakie są zalecenia dla osób, które zdecydują się na wykonanie testu.</p>
+        <p>Pamiętaj, że przed przystąpieniem do testu na COVID-19 musisz przejść przez proces rejestracji. Zazwyczaj wymagane są podstawowe dane osobowe, a także zgoda na przetwarzanie danych oraz akceptacja zasad korzystania z usługi. Po rejestracji otrzymasz potwierdzenie wizyty oraz informacje dotyczące dalszych kroków, jakie należy podjąć.</p>
+        <p>Zapisy na testy na COVID-19 są proste i łatwe do wykonania. Dzięki temu szybko przekonasz się, czy jesteś zarażony koronawirusem, co pozwoli Ci podjąć odpowiednie kroki w celu ochrony siebie i swoich bliskich. Skorzystaj z naszej strony i umów się na test już dziś!</p>
       </div>
 </div>
 

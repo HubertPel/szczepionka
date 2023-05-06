@@ -1,74 +1,6 @@
 @include('templates.header')
 
-
-<div class="row">
-    <div class="col-md-3">
-    <div class="sticky-top mb-3">
-    <div class="card">
-    <div class="card-header">
-    <h4 class="card-title">Draggable Events</h4>
-    </div>
-    <div class="card-body">
-    
-    <div id="external-events">
-    <div class="external-event bg-success ui-draggable ui-draggable-handle" style="position: relative;">Lunch</div>
-    <div class="external-event bg-warning ui-draggable ui-draggable-handle" style="position: relative;">Go home</div>
-    <div class="external-event bg-info ui-draggable ui-draggable-handle" style="position: relative; z-index: auto; left: 0px; top: 0px;">Do homework</div>
-    <div class="external-event bg-primary ui-draggable ui-draggable-handle" style="position: relative; z-index: auto; left: 0px; top: 0px;">Work on UI design</div>
-    <div class="external-event bg-danger ui-draggable ui-draggable-handle" style="position: relative; z-index: auto; left: 0px; top: 0px;">Sleep tight</div>
-    <div class="checkbox">
-    <label for="drop-remove">
-    <input type="checkbox" id="drop-remove">
-    remove after drop
-    </label>
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    
-    <div class="card">
-    <div class="card-header">
-    <h3 class="card-title">Create Event</h3>
-    </div>
-    <div class="card-body">
-    <div class="btn-group" style="width: 100%; margin-bottom: 10px;">
-    <ul class="fc-color-picker" id="color-chooser">
-    <li><a class="text-primary" href="#"><i class="fas fa-square"></i></a></li>
-    <li><a class="text-warning" href="#"><i class="fas fa-square"></i></a></li>
-    <li><a class="text-success" href="#"><i class="fas fa-square"></i></a></li>
-    <li><a class="text-danger" href="#"><i class="fas fa-square"></i></a></li>
-    <li><a class="text-muted" href="#"><i class="fas fa-square"></i></a></li>
-    </ul>
-    </div>
-    
-    <div class="input-group">
-    <input id="new-event" type="text" class="form-control" placeholder="Event Title">
-    <div class="input-group-append">
-    <button id="add-new-event" type="button" class="btn btn-primary" style="background-color: rgb(0, 123, 255); border-color: rgb(0, 123, 255);">Add</button>
-    </div>
-    
-    </div>
-    
-    </div>
-    </div>
-    </div>
-    </div>
-    
-    <div class="col-md-9">
-    <div class="card card-primary">
-    <div class="card-body p-0">
-    
-        <div id="calendar">
-    </div>
-    
-    </div>
-    
-    </div>
-    
-    </div>
-
-{{-- <div class="main-container" style="align-items: flex-start">
+<div class="main-container" style="align-items: flex-start">
     <div class="smaller-box">
         <div class="input-box">
             Miasto<br>
@@ -115,25 +47,6 @@
             </tr>
         </table>
     </div>
-</div> --}}
-
-<script src='https://cdn.jsdelivr.net/npm/fullcalendar-scheduler@6.1.6/index.global.min.js'></script>
-    <script>
-
-      document.addEventListener('DOMContentLoaded', function() {
-        var calendarEl = document.getElementById('calendar');
-        var calendar = new FullCalendar.Calendar(calendarEl, {
-            initialView: 'dayGridWeek',
-  headerToolbar: {
-    left: 'prev,next',
-    center: 'title',
-    right: 'dayGridWeek' // user can switch between the two
-  }
-        });
-
-        calendar.render();
-      });
-
-    </script>
+</div>
 
 @include('templates.footer')

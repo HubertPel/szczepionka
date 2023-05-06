@@ -2,7 +2,7 @@
 
 <div class="main-image">
     <div class="main-image-text">
-        Zapraszamy na szczepienia <br>dostępne w naszej ofercie.
+        Zapraszamy na testy COVID <br>dostępne w naszej ofercie.
         <a href="/logowanie" style="text-decoration: none;">
             <div class="red-button">
                 ZALOGUJ SIĘ
