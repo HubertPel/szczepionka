@@ -79,6 +79,7 @@
                             <th>Placówka</th>
                             <th>Data</th>
                             <th>Status</th>
+                            <th>Wynik</th>
                             <th>Akcje</th>
                         </tr>
                     </thead>
@@ -88,6 +89,13 @@
                                 <td>{{$visit->hospital->name}}</td>
                                 <td>{{$visit->date}}</td>
                                 <td>{{__('page.' . $visit->status)}}</td>
+                                <td>
+                                    @if ($visit->result == '')
+                                        Oczekuję
+                                    @else 
+                                        {{__('page.' . $visit->result)}}
+                                    @endif
+                                </td>
                                 <td>
                                     @if ($visit->status == 'planned')
                                         <a href="/moje-konto/wizyty/anuluj/<?= $visit->id ?>" class="btn btn-sm btn-danger">Anuluj wizytę</a>

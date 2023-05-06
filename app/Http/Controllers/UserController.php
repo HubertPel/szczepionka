@@ -16,6 +16,10 @@ class UserController extends Controller
             return redirect('/logowanie');
         }
 
+        if (session('user_type') != 'user') {
+            return redirect('/');
+        }
+
         $user = User::find(session('user_id'));
 
         $visits = Visit::where('user_id', $user->id)
@@ -42,6 +46,9 @@ class UserController extends Controller
             return redirect('/logowanie');
         }
 
+        if (session('user_type') != 'user') {
+            return redirect('/');
+        }
 
         $validated = $request->validate([
             'name' => 'required',
@@ -78,6 +85,10 @@ class UserController extends Controller
             return redirect('/logowanie');
         }
 
+        if (session('user_type') != 'user') {
+            return redirect('/');
+        }
+
         $visits = Visit::where('user_id', session('user_id'))->orderBy('date', 'DESC')->get();
 
         $visitsCount = Visit::where('user_id', session('user_id'))
@@ -105,6 +116,10 @@ class UserController extends Controller
             return redirect('/logowanie');
         }
 
+        if (session('user_type') != 'user') {
+            return redirect('/');
+        }
+
         $visitData = Visit::where('user_id', session('user_id'))->where('id', $visit);
 
         if (!$visitData) {
@@ -120,6 +135,10 @@ class UserController extends Controller
     {
         if (!session('user_id')) {
             return redirect('/logowanie');
+        }
+
+        if (session('user_type') != 'user') {
+            return redirect('/');
         }
 
         $visitData = Visit::where('user_id', session('user_id'))->where('id', $visit);

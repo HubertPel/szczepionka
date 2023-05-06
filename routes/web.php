@@ -5,6 +5,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\TestsController;
 use App\Http\Controllers\RegistersContoller;
 
 /*
@@ -33,8 +34,15 @@ Route::get('/zapisy', [RegistersContoller::class, 'index']);
 Route::get('/ajax/vaccine/{city}', [RegistersContoller::class, 'citiesList']);
 Route::get('/ajax/vaccine/city/{city}', [RegistersContoller::class, 'cityInfo']);
 Route::get('/zapisy/zapisz/{hospital}', [RegistersContoller::class, 'registerForVisit']);
+
+// tylko uzytkownik
 Route::get('/moje-konto', [UserController::class, 'myAccount']);
 Route::post('/moje-konto', [UserController::class, 'updateMyData']);
 Route::get('/moje-konto/wizyty', [UserController::class, 'myVisits']);
 Route::get('/moje-konto/wizyty/certfikat/{visit}', [UserController::class, 'certificate']);
 Route::get('/moje-konto/wizyty/anuluj/{visit}', [UserController::class, 'cancelVisit']);
+
+// tylko pracownik
+Route::get('/testy', [TestsController::class, 'index']);
+Route::get('/test/change-status/{visit}', [TestsController::class, 'changeStatus']);
+Route::get('/test/change-result/{visit}', [TestsController::class, 'changeResult']);

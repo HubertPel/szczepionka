@@ -32,7 +32,7 @@ class AuthController extends Controller
             'repeat_password' => ['required', 'same:password'],
         ]); 
         
-        User::insert([
+        User::create([
             'name' => $request->input('name'),
             'surname' => $request->input('surname'),
             'pesel' => $request->input('pesel'),
@@ -50,8 +50,11 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $user = User::where('email', $request->email)
-            ->where('password', $request->password)
             ->first();    
+
+        if ($user && !password_verify($request->password, $user->password)){
+            $user = null;
+        }
         
         if (!$user) { 
             return redirect('/logowanie')->with([
@@ -64,6 +67,7 @@ class AuthController extends Controller
             'user_id' => $user->id,
             'user_name' => $user->name,
             'user_surname' => $user->surname,
+            'user_type' => $user->type
         ]);
         return redirect('/');
     }

@@ -24,8 +24,13 @@
                     <li class="nav-item dropdown">
                         <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Witaj, <strong>{{session('user_name')}}</strong></a>
                         <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
-                            <li><a href="/moje-konto" class="dropdown-item">Moje konto</a></li>
-                            <li><a href="/moje-konto/wizyty" class="dropdown-item">Moje wizyty</a></li>
+                            @if(session('user_type') == 'user')
+                                <li><a href="/moje-konto" class="dropdown-item">Moje konto</a></li>
+                                <li><a href="/moje-konto/wizyty" class="dropdown-item">Moje wizyty</a></li>
+                            @elseif(session('user_type') == 'worker')
+                                <li><a href="/testy" class="dropdown-item">Testy</a></li>
+                            @endif
+                           
                             <li class="dropdown-divider"></li>
                             <li><a href="/wyloguj" class="dropdown-item">Wyloguj</a></li>
                 
