@@ -9,9 +9,10 @@
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Zaloguj się</p>
-            <form action="../../index3.html" method="post">
+            <form action="" method="POST">
+                @csrf
                 <div class="input-group mb-3">
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" name="email" class="form-control" placeholder="Email">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -19,7 +20,7 @@
                     </div>
                 </div>
                 <div class="input-group mb-3">
-                    <input type="password" class="form-control" placeholder="Hasło">
+                    <input type="password" name="password" class="form-control" placeholder="Hasło">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>

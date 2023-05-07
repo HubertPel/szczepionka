@@ -50,6 +50,7 @@ class AuthController extends Controller
     public function login(Request $request)
     {
         $user = User::where('email', $request->email)
+            ->whereIn('type', ['worker', 'user'])
             ->first();    
 
         if ($user && !password_verify($request->password, $user->password)){
