@@ -19,10 +19,10 @@ integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
 crossorigin="anonymous"></script>
 <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 </head>
-<body class="layout-navbar-fixed" style="height: auto;">
+<body class="hold-transition sidebar-mini" style="height: auto; margin-left: 0; width: 100%">
     <div class="wrapper">
-
+     
         @include('/admin/templates/navbar')
         @include('/admin/templates/sidebar')
 
-        <div class="content-wrapper" style="min-height: 75vh; margin-left: 0; padding-bottom: 100px;">
+         <div class="content-wrapper">

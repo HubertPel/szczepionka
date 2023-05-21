@@ -9,6 +9,7 @@ use App\Http\Controllers\TestsController;
 use App\Http\Controllers\RegistersContoller;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 
 
 /*
@@ -55,4 +56,9 @@ Route::prefix('admin')->group(function() {
     Route::get('/login', [AdminAuthController::class, 'login']);
     Route::post('/login', [AdminAuthController::class, 'loginUser']);
     Route::get('/', [AdminDashboardController::class, 'index']);
+
+    //FAQ
+    Route::prefix('faq')->group(function() {
+        Route::get('/', [AdminFaqController::class, 'list']);
+    });
 });
