@@ -10,6 +10,8 @@ use App\Http\Controllers\RegistersContoller;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
+use App\Http\Controllers\Admin\CitiesController as AdminCitiesController;
+use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 
 
 /*
@@ -60,5 +62,30 @@ Route::prefix('admin')->group(function() {
     //FAQ
     Route::prefix('faq')->group(function() {
         Route::get('/', [AdminFaqController::class, 'list']);
+        Route::get('create', [AdminFaqController::class, 'create']);
+        Route::post('create', [AdminFaqController::class, 'save']);
+        Route::get('{itemId}', [AdminFaqController::class, 'edit']);
+        Route::patch('edit', [AdminFaqController::class, 'update']);
+        Route::delete('delete', [AdminFaqController::class, 'delete']);
+    });
+
+    //Miasta
+    Route::prefix('cities')->group(function() {
+        Route::get('/', [AdminCitiesController::class, 'list']);
+        Route::get('create', [AdminCitiesController::class, 'create']);
+        Route::post('create', [AdminCitiesController::class, 'save']);
+        Route::get('{itemId}', [AdminCitiesController::class, 'edit']);
+        Route::patch('edit', [AdminCitiesController::class, 'update']);
+        Route::delete('delete', [AdminCitiesController::class, 'delete']);
+    });
+
+    //Miasta
+    Route::prefix('users')->group(function() {
+        Route::get('/', [AdminUsersController::class, 'list']);
+        Route::get('create', [AdminUsersController::class, 'create']);
+        Route::post('create', [AdminUsersController::class, 'save']);
+        Route::get('{itemId}', [AdminUsersController::class, 'edit']);
+        Route::patch('edit', [AdminUsersController::class, 'update']);
+        Route::delete('delete', [AdminUsersController::class, 'delete']);
     });
 });
