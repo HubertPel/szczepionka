@@ -38,7 +38,7 @@
             <a href="/admin/users" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Użytkownicy (todo)
+                Użytkownicy
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -53,7 +53,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/admin/hospitals" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
                 Szpitale (todo)
@@ -62,10 +62,10 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/admin/visits" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Wizyty (todo)
+                Wizyty
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

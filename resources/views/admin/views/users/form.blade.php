@@ -50,19 +50,19 @@
                       <div class="col-6">
                         <div class="form-group">
                             <label for="nameInput">Imie</label>
-                            <input id="nameInput" class="form-control" name="name" required @if(isset($item))value="{{$item->name}}"@endif />
+                            <input id="nameInput" class="form-control" name="name" required @if(isset($item))value="{{$item->name}}"@else value="{{old('name')}}" @endif />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-group">
                             <label for="nameSurname">Nazwisko</label>
-                            <input id="nameSurname" class="form-control" name="surname" required @if(isset($item))value="{{$item->surname}}"@endif />
+                            <input id="nameSurname" class="form-control" name="surname" required @if(isset($item))value="{{$item->surname}}"@else value="{{old('surname')}}" @endif />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-group">
                             <label for="emailInput">E-mail</label>
-                            <input id="emailInput" class="form-control" name="email" required @if(isset($item))value="{{$item->email}}"@endif />
+                            <input id="emailInput" class="form-control" name="email" required @if(isset($item))value="{{$item->email}}"@else value="{{old('email')}}" @endif />
                         </div>
                       </div>
                       <div class="col-6">
@@ -71,7 +71,7 @@
                             <select class="form-control" name="type">
                               <option value="">Wybierz</option>
                               @foreach($types as $type => $typeName)
-                                <option value="{{$type}}">{{$typeName}}</option>
+                                <option value="{{$type}}" @if(isset($item)){{$item->type == $type ? 'selected' : ''}}@else {{old('type') == $type ? 'selected' : ''}}@endif>{{$typeName}}</option>
                               @endforeach
                             </select>
                         </div>
@@ -79,13 +79,13 @@
                       <div class="col-6">
                         <div class="form-group">
                             <label for="peselInput">Pesel</label>
-                            <input id="peselInput" class="form-control" name="pesel" required @if(isset($item))value="{{$item->pesel}}"@endif />
+                            <input id="peselInput" class="form-control" name="pesel"  @if(isset($item))value="{{$item->pesel}}"@else value="{{old('pesel')}}" @endif />
                         </div>
                       </div>
                       <div class="col-6">
                         <div class="form-group">
                             <label for="bdatDate">Data urodzenia</label>
-                            <input id="bdatDate" type="date" class="form-control" name="birthdate" required @if(isset($item))value="{{$item->birthdate}}"@endif />
+                            <input id="bdatDate" type="date" class="form-control" name="birthdate" @if(isset($item))value="{{$item->birthdate}}"@else value="{{old('birthdate')}}" @endif />
                         </div>
                       </div>
                       <div class="col-12">
@@ -94,7 +94,11 @@
                             <input id="passwordInput" type="password" class="form-control" name="password" />
                         </div>
                       </div>
-                      
+                      @if($errors->any())
+                        @foreach($errors->all() as $error)
+                          <span style="color: red">{{$error}}<span><br>
+                        @endforeach
+                    @endif
                     </div>
                   </div>
               <!-- /.card-body -->

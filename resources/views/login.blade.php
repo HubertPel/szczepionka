@@ -35,7 +35,6 @@
                                 <button type="submit" class="btn btn-success">Zaloguj się</button>
                                 <a href="/rejestracja"  class="btn btn-info">Zarejestruj się</a>
                             </div>
-
                         </form>
                     </div>
                 </div>

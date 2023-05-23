@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\CitiesController as AdminCitiesController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
+use App\Http\Controllers\Admin\VisitsController as AdminVisitsController;
 
 
 /*
@@ -87,5 +88,15 @@ Route::prefix('admin')->group(function() {
         Route::get('{itemId}', [AdminUsersController::class, 'edit']);
         Route::patch('edit', [AdminUsersController::class, 'update']);
         Route::delete('delete', [AdminUsersController::class, 'delete']);
+    });
+
+    //Wizyty
+    Route::prefix('visits')->group(function() {
+        Route::get('/', [AdminVisitsController::class, 'list']);
+        Route::get('create', [AdminVisitsController::class, 'create']);
+        Route::post('create', [AdminVisitsController::class, 'save']);
+        Route::get('{itemId}', [AdminVisitsController::class, 'edit']);
+        Route::patch('edit', [AdminVisitsController::class, 'update']);
+        Route::delete('delete', [AdminVisitsController::class, 'delete']);
     });
 });
