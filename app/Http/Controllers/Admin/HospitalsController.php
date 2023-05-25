@@ -2,30 +2,17 @@
 
 namespace App\Http\Controllers\admin;
 
-use App\Models\User;
-use App\Models\Visit;
+use App\Models\City;
 use App\Models\Hospitals;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Admin\BaseController;
 
-class VisitsController extends BaseController
+class HospitalsController extends BaseController
 {
-    protected $model = Visit::class;
+    protected $model = Hospitals::class;
     protected $view = [
-        'list' => 'visits/list',
-        'form' => 'visits/form'
-    ];
-
-    protected $results = [
-        '' => 'Oczekuje',
-        'positive' => 'Pozytywny',
-        'negative' => 'Negatywny',
-    ];
-
-    protected $status = [
-        'planned' => 'Zaplanowana',
-        'finished' => 'Zakończona',
-        'canceled' => 'Anulowana',
+        'list' => 'hospitals/list',
+        'form' => 'hospitals/form'
     ];
 
     public function create()
@@ -34,15 +21,7 @@ class VisitsController extends BaseController
             return redirect()->to('/admin/login');
         }
 
-        $users = User::where('type', 'user')->get();
-        $hospitals = Hospitals::all();
-
-        return view('admin/views/' . $this->view['form'])->with([
-            'users' => $users,
-            'hospitals' => $hospitals,
-            'status' => $this->status,
-            'results' => $this->results,
-        ]);
+        return view('admin/views/' . $this->view['form'])->with('cities', City::all());
     }
 
     public function save(Request $request)
@@ -56,8 +35,9 @@ class VisitsController extends BaseController
         $insertData = $request->all();
         
         if (isset($insertData['_token'])) unset($insertData['_token']);
-        if ($insertData['result'] == null) $insertData['result'] = '';
-        
+
+        $insertData['hours_data'] = json_encode($insertData['hours_data']);
+  
         $item = $model->insert($insertData);
 
         return redirect()->back();
@@ -77,15 +57,12 @@ class VisitsController extends BaseController
             return redirect()->back();
         }
 
-        $users = User::where('type', 'user')->get();
-        $hospitals = Hospitals::all();
+        $hours = json_decode($item->hours_data, 1);
 
         return view('admin/views/' . $this->view['form'])->with([
             'item' => $item,
-            'users' => $users,
-            'hospitals' => $hospitals,
-            'status' => $this->status,
-            'results' => $this->results,
+            'cities' => City::all(),
+            'hours' => $hours
         ]);
     }
 
@@ -101,7 +78,8 @@ class VisitsController extends BaseController
         
         if (isset($updateData['_token'])) unset($updateData['_token']);
         if (isset($updateData['_method'])) unset($updateData['_method']);
-        if ($updateData['result'] == null) $updateData['result'] = '';
+        
+        $updateData['hours_data'] = json_encode($updateData['hours_data']);
         
         $item = $model->where('id', $request->id)->update($updateData);
 

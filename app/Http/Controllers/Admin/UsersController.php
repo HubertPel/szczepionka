@@ -4,7 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\Models\User;
 use App\Rules\Pesel;
+use App\Models\Hospitals;
 use Illuminate\Http\Request;
+use App\Models\HospitalWorker;
 use App\Http\Controllers\Admin\BaseController;
 
 class UsersController extends BaseController
@@ -23,11 +25,19 @@ class UsersController extends BaseController
 
     public function create()
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
         return view('admin/views/' . $this->view['form'])->with('types', $this->types);
     }
 
     public function save(Request $request)
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
         $model = new $this->model;
 
         $insertData = $request->all();
@@ -59,6 +69,10 @@ class UsersController extends BaseController
 
     public function edit($itemId)
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
         $model = new $this->model;
 
         $item = $model->find($itemId);
@@ -66,16 +80,28 @@ class UsersController extends BaseController
         if (!$item) {
             return redirect()->back();
         }
+
+        $hospitals = [];
+        if ($item->type == 'worker') {
+            $userHospitals = HospitalWorker::where('user_id', $item->id)->pluck('hospital_id')->toArray();
+
+            $hospitals = Hospitals::whereNotIn('id', $userHospitals)->get();
+        }
         
         return view('admin/views/' . $this->view['form'])
             ->with([
                 'item' => $item,
-                'types' => $this->types
+                'types' => $this->types,
+                'hospitals' => $hospitals,
             ]);
     }
 
     public function update(Request $request)
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+        
         $model = new $this->model;
 
         $updateData = $request->all();
@@ -101,6 +127,31 @@ class UsersController extends BaseController
         if (isset($updateData['_method'])) unset($updateData['_method']);
         
         $item = $model->where('id', $request->id)->update($updateData);
+
+        return redirect()->back();
+    }
+
+    public function addHospital(Request $request)
+    {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
+        HospitalWorker::insert([
+            'user_id' => $request->user,
+            'hospital_id' => $request->hospital,
+        ]);
+
+        return redirect()->back();
+    }
+
+    public function deleteHospital(Request $request)
+    {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+        
+        HospitalWorker::where('hospital_id', $request->id)->where('user_id', $request->user_id)->delete();
 
         return redirect()->back();
     }

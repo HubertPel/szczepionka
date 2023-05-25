@@ -6,8 +6,8 @@
           <div class="card">
             <div class="card-header">
                 <div class="row">
-                    <div class="col-10"> <h3 class="card-title">Użytkownicy</h3></div>
-                    <div class="col-2"><a href="/admin/users/create" class="btn btn-success" style="display: flex">Dodaj</a></div>
+                    <div class="col-10"> <h3 class="card-title">Szpitale</h3></div>
+                    <div class="col-2"><a href="/admin/hospitals/create" class="btn btn-success" style="display: flex">Dodaj</a></div>
                 </div>
              
             </div>
@@ -17,8 +17,8 @@
                 <thead>
                   <tr>
                     <th style="width: 10px">#</th>
-                    <th>Imię i nazwisko</th>
-                    <th>E-mail</th>
+                    <th>Nazwa</th>
+                    <th>Adres</th>
                     <th>Akcje</th>
                   </tr>
                 </thead>
@@ -26,16 +26,15 @@
                     @foreach ($list as $item)
                         <tr>
                             <td>{{$item->id}}</td>
-                            <td>{{$item->name . ' ' . $item->surname}}</td>
-                            <td>{{$item->email}}</td>
+                            <td>{{$item->name}}</td>
+                            <td>{{$item->address}}</td>
                             <td style="display: flex; gap: 20px;">
-                              <a href="/admin/users/{{$item->id}}" class="btn btn-warning">Edytuj</a>
-                              <form method="POST" action="/admin/users/delete">
+                              <a href="/admin/hospitals/{{$item->id}}" class="btn btn-warning">Edytuj</a>
+                              <form method="POST" action="/admin/hospitals/delete">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="id" value="{{$item->id}}">
                                 <button type="submit" class="btn btn-danger">Usuń</button>
-                              </form>
                             </td>
                         </tr>
                     @endforeach

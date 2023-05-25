@@ -94,6 +94,9 @@
                             <input id="passwordInput" type="password" class="form-control" name="password" />
                         </div>
                       </div>
+
+     
+
                       @if($errors->any())
                         @foreach($errors->all() as $error)
                           <span style="color: red">{{$error}}<span><br>
@@ -107,6 +110,54 @@
                 <button type="submit" class="btn btn-{{isset($item) ? 'warning' : 'success'}}">Submit</button>
               </div>
             </form>
+              @if (isset($item) && $item->type == 'worker')
+              <div class="col-12">
+                <h2> Pracownik w</h2> 
+                <div class="row">
+                  <div class="col-6">
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>Szpital</th>
+                          <th style="width: 40px">Akcja</th>
+                        </tr>
+                      </thead>
+                        <tbody>
+                          @foreach ($item->hospitals as $hospital)
+                              <tr>
+                                <td>{{$hospital->name}}</td>
+                                <td>
+                                  <form method="POST" action="/admin/users/deleteHospital">
+                                    @csrf
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" name="id" value="{{$hospital->id}}">
+                                    <input type="hidden" name="user_id" value="{{$item->id}}">
+                                    <button type="submit" class="btn btn-danger">Usuń</button>
+                                  </form>
+                                </td>
+                              </tr>
+                          @endforeach
+                        </tbody>
+                      </table>
+                  </div>
+                
+                  <div class="col-6">
+                    <form action="/admin/users/addHospital" method="POST">
+                      @csrf
+                      <input type="hidden" name="user" value="{{$item->id}}">
+                      <select name="hospital" class="form-control" required>
+                        <option value="">Wybierz</option>
+                        @foreach ($hospitals as $hospital)
+                            <option value="{{$hospital->id}}">{{$hospital->name}}</option>
+                        @endforeach
+                      </select>
+                      <button type="submit" class="btn btn-success">Dodaj</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            @endif
+            
           </div>
         </div>
       </div>

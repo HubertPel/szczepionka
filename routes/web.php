@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\FaqController as AdminFaqController;
 use App\Http\Controllers\Admin\CitiesController as AdminCitiesController;
 use App\Http\Controllers\Admin\UsersController as AdminUsersController;
 use App\Http\Controllers\Admin\VisitsController as AdminVisitsController;
+use App\Http\Controllers\Admin\HospitalsController as AdminHospitalsController;
 
 
 /*
@@ -80,7 +81,7 @@ Route::prefix('admin')->group(function() {
         Route::delete('delete', [AdminCitiesController::class, 'delete']);
     });
 
-    //Miasta
+    //Użytkownicy
     Route::prefix('users')->group(function() {
         Route::get('/', [AdminUsersController::class, 'list']);
         Route::get('create', [AdminUsersController::class, 'create']);
@@ -88,6 +89,8 @@ Route::prefix('admin')->group(function() {
         Route::get('{itemId}', [AdminUsersController::class, 'edit']);
         Route::patch('edit', [AdminUsersController::class, 'update']);
         Route::delete('delete', [AdminUsersController::class, 'delete']);
+        Route::post('addHospital', [AdminUsersController::class, 'addHospital']);
+        Route::delete('deleteHospital', [AdminUsersController::class, 'deleteHospital']);
     });
 
     //Wizyty
@@ -98,5 +101,15 @@ Route::prefix('admin')->group(function() {
         Route::get('{itemId}', [AdminVisitsController::class, 'edit']);
         Route::patch('edit', [AdminVisitsController::class, 'update']);
         Route::delete('delete', [AdminVisitsController::class, 'delete']);
+    });
+
+    //Szpitale
+    Route::prefix('hospitals')->group(function() {
+        Route::get('/', [AdminHospitalsController::class, 'list']);
+        Route::get('create', [AdminHospitalsController::class, 'create']);
+        Route::post('create', [AdminHospitalsController::class, 'save']);
+        Route::get('{itemId}', [AdminHospitalsController::class, 'edit']);
+        Route::patch('edit', [AdminHospitalsController::class, 'update']);
+        Route::delete('delete', [AdminHospitalsController::class, 'delete']);
     });
 });

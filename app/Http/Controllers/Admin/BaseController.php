@@ -9,6 +9,10 @@ class BaseController extends Controller
 {
     public function list() 
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
         $model = new $this->model;
         
         $list = $model->paginate(50);
@@ -18,11 +22,19 @@ class BaseController extends Controller
 
     public function create()
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        } 
+
         return view('admin/views/' . $this->view['form']);
     }
 
     public function save(Request $request)
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
         $model = new $this->model;
 
         $insertData = $request->all();
@@ -37,6 +49,10 @@ class BaseController extends Controller
     
     public function edit($itemId)
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
         $model = new $this->model;
 
         $item = $model->find($itemId);
@@ -50,6 +66,10 @@ class BaseController extends Controller
 
     public function update(Request $request)
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+
         $model = new $this->model;
 
         $updateData = $request->all();
@@ -64,6 +84,10 @@ class BaseController extends Controller
 
     public function delete(Request $request)
     {
+        if (!session('admin_id')) {
+            return redirect()->to('/admin/login');
+        }
+        
         $model = new $this->model;
         
         $model->where('id', $request->id)->delete();
