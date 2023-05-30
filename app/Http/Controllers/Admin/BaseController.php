@@ -43,7 +43,7 @@ class BaseController extends Controller
         
         $item = $model->insert($insertData);
 
-        return redirect()->back();
+        return redirect()->to('/admin/' . $this->link);
     }
 
     

@@ -37,6 +37,7 @@
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="id" value="{{$item->id}}">
                                 <button type="submit" class="btn btn-danger">Usuń</button>
+                              </form>
                             </td>
                         </tr>
                     @endforeach

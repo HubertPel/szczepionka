@@ -13,4 +13,5 @@ class CitiesController extends BaseController
         'list' => 'cities/list',
         'form' => 'cities/form'
     ];
+    protected $link = 'cities';
 }

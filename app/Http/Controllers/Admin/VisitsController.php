@@ -15,6 +15,7 @@ class VisitsController extends BaseController
         'list' => 'visits/list',
         'form' => 'visits/form'
     ];
+    protected $link = 'visits';
 
     protected $results = [
         '' => 'Oczekuje',
@@ -60,7 +61,7 @@ class VisitsController extends BaseController
         
         $item = $model->insert($insertData);
 
-        return redirect()->back();
+        return redirect()->to('/admin/' . $this->link);
     }
 
     public function edit($itemId)

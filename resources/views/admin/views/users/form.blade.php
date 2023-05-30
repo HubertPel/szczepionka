@@ -85,7 +85,7 @@
                       <div class="col-6">
                         <div class="form-group">
                             <label for="bdatDate">Data urodzenia</label>
-                            <input id="bdatDate" type="date" class="form-control" name="birthdate" @if(isset($item))value="{{$item->birthdate}}"@else value="{{old('birthdate')}}" @endif />
+                            <input id="bdatDate" type="date" class="form-control" name="birthdate" required @if(isset($item))value="{{$item->birthdate}}"@else value="{{old('birthdate')}}" @endif />
                         </div>
                       </div>
                       <div class="col-12">

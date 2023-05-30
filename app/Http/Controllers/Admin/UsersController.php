@@ -16,6 +16,8 @@ class UsersController extends BaseController
         'list' => 'users/list',
         'form' => 'users/form'
     ];
+    protected $link = 'users';
+
 
     protected $types = [
         'user' => 'Użytkownik',
@@ -62,9 +64,9 @@ class UsersController extends BaseController
         
         if (isset($insertData['_token'])) unset($insertData['_token']);
         
-        $item = $model->insert($insertData);
+        $item = $model->create($insertData);
 
-        return redirect()->back();
+        return redirect()->to('/admin/' . $this->link);
     }
 
     public function edit($itemId)
@@ -122,7 +124,8 @@ class UsersController extends BaseController
             ]); 
         }
 
-        if ($updateData['password'] == '') unset($updateData['password']);        
+        if ($updateData['password'] == '') unset($updateData['password']);   
+        else $updateData['password'] =  password_hash($updateData['password'], PASSWORD_DEFAULT ); 
         if (isset($updateData['_token'])) unset($updateData['_token']);
         if (isset($updateData['_method'])) unset($updateData['_method']);
         

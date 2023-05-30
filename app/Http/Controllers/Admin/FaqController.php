@@ -13,5 +13,7 @@ class FaqController extends BaseController
         'list' => 'faq/list',
         'form' => 'faq/form'
     ];
+    protected $link = 'faq';
+
 
 }

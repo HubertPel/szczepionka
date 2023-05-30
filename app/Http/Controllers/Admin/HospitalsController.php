@@ -14,6 +14,8 @@ class HospitalsController extends BaseController
         'list' => 'hospitals/list',
         'form' => 'hospitals/form'
     ];
+    protected $link = 'hospitals';
+
 
     public function create()
     {
@@ -40,7 +42,7 @@ class HospitalsController extends BaseController
   
         $item = $model->insert($insertData);
 
-        return redirect()->back();
+        return redirect()->to('/admin/' . $this->link);
     }
 
     public function edit($itemId)
