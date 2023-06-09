@@ -369,6 +369,9 @@ class HospitalsSeed extends Seeder
         foreach ($hospitalsAarray as $city) {
             foreach ($city['hospitals'] as $hospital) {
                 $hospital['city_id'] = $city['city_id'];
+                if (!isset($hospital['hours_data'])) {
+                    $hospital['hours_data'] = json_encode([['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>8, 'end' => 18],['start'=>9, 'end' => 15]]);
+                }
                 DB::table('hospitals')->insert($hospital);
             }
         }
